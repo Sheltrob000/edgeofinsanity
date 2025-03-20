@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyae7xtqyfmnl"]
+
+[ext_resource type="Script" uid="uid://dqp0767f22otb" path="res://Conpontnts/scripts/consistant_attack.gd" id="1_tdldg"]
+
+[node name="ConsistantAttack" type="Area2D"]
+script = ExtResource("1_tdldg")
+damage = null
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

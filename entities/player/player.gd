@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 1000
+const SPEED = 800
 const JUMPSPEED = -5000
-const ACCERLATION = 500
+const ACCERLATION = 300
 
 var direction = 0
 

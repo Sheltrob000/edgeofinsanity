@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://q83eda8l4j8k"]
+[gd_scene load_steps=9 format=3 uid="uid://q83eda8l4j8k"]
 
 [ext_resource type="Script" uid="uid://btrbf7p778n58" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://ds16rdj2fsaib" path="res://assets/playerAnimations/incsanityMC.png" id="2_abrql"]
 [ext_resource type="Script" uid="uid://dyx46452883bx" path="res://Conpontnts/scripts/health_component.gd" id="3_sglur"]
+[ext_resource type="Script" uid="uid://dmt5k5q5hs7jp" path="res://Conpontnts/scripts/attack_component.gd" id="4_fkugw"]
+[ext_resource type="Texture2D" uid="uid://btu22ec7immf3" path="res://assets/godotLogo.png" id="5_8fjmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
 size = Vector2(103, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bls4j"]
 size = Vector2(103, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiwj3"]
+size = Vector2(152, 25)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_symyc")
@@ -36,3 +41,19 @@ metadata/_custom_type_script = "uid://dyx46452883bx"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Health_Component"]
 position = Vector2(-8.5, -22.5)
 shape = SubResource("RectangleShape2D_bls4j")
+
+[node name="AttackComponent" type="Area2D" parent="."]
+script = ExtResource("4_fkugw")
+damage = 1
+attackLength = 0.1
+attackCooldown = 0.5
+metadata/_custom_type_script = "uid://dmt5k5q5hs7jp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+position = Vector2(123, 4.5)
+shape = SubResource("RectangleShape2D_qiwj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackComponent"]
+position = Vector2(117, 3)
+scale = Vector2(0.201172, 0.0429688)
+texture = ExtResource("5_8fjmc")

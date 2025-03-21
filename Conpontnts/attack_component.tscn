@@ -4,12 +4,11 @@
 
 [node name="AttackComponent" type="Area2D"]
 script = ExtResource("1_tloce")
-damage = null
-attackLength = null
-attackCooldown = null
 
 [node name="attackLength" type="Timer" parent="."]
+one_shot = true
 
 [node name="cooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

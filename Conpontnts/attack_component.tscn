@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://kqbj8b3jhtyq"]
+
+[ext_resource type="Script" uid="uid://b4hw1vyop7ytg" path="res://Conpontnts/scripts/attack_component.gd" id="1_tloce"]
+
+[node name="AttackComponent" type="Area2D"]
+script = ExtResource("1_tloce")
+
+[node name="attackLength" type="Timer" parent="."]
+one_shot = true
+
+[node name="cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="attackLength" to="." method="_on_attack_length_timeout"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

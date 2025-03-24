@@ -1,4 +1,5 @@
 extends Area2D
+class_name Consistant_Attack_Component
 
 @export var damage : int
 

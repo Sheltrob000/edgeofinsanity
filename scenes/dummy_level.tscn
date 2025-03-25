@@ -5,19 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="3_sj3fy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awhbj"]
-size = Vector2(1166, 209)
+size = Vector2(5101, 209)
 
 [node name="dummyLevel" type="Node2D"]
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(573, 94.5)
+position = Vector2(1986.5, 94.5)
 shape = SubResource("RectangleShape2D_awhbj")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(574.5, 88.5)
-scale = Vector2(9.17969, 1.63281)
+position = Vector2(1984.5, 88.5)
+scale = Vector2(39.8203, 1.63281)
 texture = ExtResource("1_4d6iw")
 
 [node name="python" parent="." instance=ExtResource("3_sj3fy")]
@@ -25,3 +25,25 @@ position = Vector2(937, -117)
 
 [node name="Player" parent="." instance=ExtResource("2_awhbj")]
 position = Vector2(244, -143)
+
+[node name="RigidBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(-3113, -119)
+shape = SubResource("RectangleShape2D_awhbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+position = Vector2(-3109, -111)
+scale = Vector2(39.8203, 1.63281)
+texture = ExtResource("1_4d6iw")
+
+[node name="RigidBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(7086, -112)
+shape = SubResource("RectangleShape2D_awhbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
+position = Vector2(7084, -115)
+scale = Vector2(39.8203, 1.63281)
+texture = ExtResource("1_4d6iw")

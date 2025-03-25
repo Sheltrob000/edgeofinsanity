@@ -6,6 +6,8 @@ class_name Attack_Component
 @export var Attackduration : float
 @export var AttackCooldown : float
 
+signal attackEnded
+
 var canAttack := true
 
 func _ready():
@@ -20,6 +22,8 @@ func StartAttack():
 		monitoring = true
 		visible = true
 		$attackLength.start()
+	else:
+		attackEnded.emit()
 
 
 
@@ -38,6 +42,7 @@ func _on_attack_length_timeout() -> void:
 	visible = false
 	monitoring = false
 	$cooldown.start()
+	attackEnded.emit()
 
 
 func _on_cooldown_timeout() -> void:

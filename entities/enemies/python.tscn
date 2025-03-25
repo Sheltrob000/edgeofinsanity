@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ocx3cs8h88m7"]
+[gd_scene load_steps=8 format=3 uid="uid://ocx3cs8h88m7"]
 
 [ext_resource type="Texture2D" uid="uid://eek5dnojr4or" path="res://assets/pythin.png" id="1_bfhsq"]
+[ext_resource type="Script" uid="uid://bahraxen4m2vf" path="res://entities/enemies/Python.gd" id="1_f812w"]
 [ext_resource type="PackedScene" uid="uid://sk0n2eu0hg07" path="res://Conpontnts/health_component.tscn" id="2_xjwyo"]
 [ext_resource type="PackedScene" uid="uid://dyae7xtqyfmnl" path="res://Conpontnts/consistant_attack.tscn" id="3_erhhj"]
 
@@ -16,6 +17,8 @@ size = Vector2(171, 170)
 [node name="python" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 4
+script = ExtResource("1_f812w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0.5, 0)
@@ -26,15 +29,27 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_bfhsq")
 
 [node name="HealthComponent" parent="CharacterBody2D" instance=ExtResource("2_xjwyo")]
-MAXHEALTH = 3
+collision_layer = 4
+collision_mask = 4
+MAXHEALTH = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HealthComponent"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_erhhj")
 
 [node name="ConsistantAttack" parent="CharacterBody2D" instance=ExtResource("3_erhhj")]
+collision_layer = 4
+collision_mask = 2
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/ConsistantAttack"]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_f812w")
+
+[node name="leftRayCast" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(-70, 70)
+target_position = Vector2(0, 2)
+
+[node name="rightRayCast" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(71, 70)
+target_position = Vector2(0, 2)

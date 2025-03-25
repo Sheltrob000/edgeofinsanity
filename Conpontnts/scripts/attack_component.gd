@@ -42,4 +42,3 @@ func _on_attack_length_timeout() -> void:
 
 func _on_cooldown_timeout() -> void:
 	canAttack = true
-	print("can attack")

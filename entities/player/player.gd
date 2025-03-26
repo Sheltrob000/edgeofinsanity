@@ -14,7 +14,17 @@ var speed := 0
 
 
 
+
+func _ready():
+	$ui.setHealth($Health_Component.health)
+
+
+
+
+
 func _physics_process(delta: float) -> void:
+	$ui.setHealth($Health_Component.health)
+
 
 	if isDashing:
 		speed = DASHSPEED
@@ -29,8 +39,11 @@ func _physics_process(delta: float) -> void:
 	if !is_on_floor():
 		velocity += get_gravity()
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or canDoubleJump):
 		velocity.y = JUMPSPEED
+		canDoubleJump = false
+	if is_on_floor():
+		canDoubleJump = true
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = 0
 	if isDashing:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ocx3cs8h88m7"]
 
 [ext_resource type="Texture2D" uid="uid://eek5dnojr4or" path="res://assets/pythin.png" id="1_bfhsq"]
-[ext_resource type="Script" uid="uid://bahraxen4m2vf" path="res://entities/enemies/Python.gd" id="1_f812w"]
+[ext_resource type="Script" uid="uid://bahraxen4m2vf" path="res://entities/enemies/python.gd" id="1_f812w"]
 [ext_resource type="PackedScene" uid="uid://sk0n2eu0hg07" path="res://Conpontnts/health_component.tscn" id="2_xjwyo"]
 [ext_resource type="PackedScene" uid="uid://dyae7xtqyfmnl" path="res://Conpontnts/consistant_attack.tscn" id="3_erhhj"]
 
@@ -47,9 +47,15 @@ position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_f812w")
 
 [node name="leftRayCast" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(-70, 70)
+position = Vector2(-71, 70)
 target_position = Vector2(0, 2)
 
 [node name="rightRayCast" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(71, 70)
+position = Vector2(72, 70)
 target_position = Vector2(0, 2)
+
+[node name="turntimer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="CharacterBody2D/turntimer" to="CharacterBody2D" method="_on_turntimer_timeout"]

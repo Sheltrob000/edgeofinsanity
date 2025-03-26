@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://q83eda8l4j8k"]
+[gd_scene load_steps=29 format=3 uid="uid://q83eda8l4j8k"]
 
 [ext_resource type="Script" uid="uid://btrbf7p778n58" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://ds16rdj2fsaib" path="res://assets/playerAnimations/incsanityMC.png" id="2_abrql"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://424bje22rns3" path="res://assets/playerAnimations/mcwalking/frame0006.png" id="18_wy7bt"]
 [ext_resource type="Texture2D" uid="uid://by7k382uhl7tw" path="res://assets/playerAnimations/mcwalking/frame0007.png" id="19_geky7"]
 [ext_resource type="Texture2D" uid="uid://c3i6vmrpu46bp" path="res://assets/playerAnimations/mcwalking/frame0008.png" id="20_qwspa"]
+[ext_resource type="Script" uid="uid://d0vc81iakuf04" path="res://entities/player/ui.gd" id="24_t1t22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
 size = Vector2(103, 258)
@@ -168,6 +169,42 @@ one_shot = true
 [node name="dashCooldown" type="Timer" parent="."]
 wait_time = 0.7
 one_shot = true
+
+[node name="ui" type="CanvasLayer" parent="."]
+script = ExtResource("24_t1t22")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_8fjmc")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_8fjmc")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_8fjmc")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_8fjmc")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="ui/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_8fjmc")
+expand_mode = 3
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dash_cooldown_timeout"]

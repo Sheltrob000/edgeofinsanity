@@ -20,6 +20,9 @@ position = Vector2(1984.5, 88.5)
 scale = Vector2(39.8203, 1.63281)
 texture = ExtResource("1_4d6iw")
 
+[node name="python" parent="RigidBody2D" instance=ExtResource("3_sj3fy")]
+position = Vector2(-1608, -336)
+
 [node name="python" parent="." instance=ExtResource("3_sj3fy")]
 position = Vector2(937, -117)
 

@@ -15,6 +15,12 @@ var speed := 0
 
 func _ready():
 	$ui.setHealth($Health_Component.health)
+	canBeHit()
+func canBeHit():
+	$Health_Component.monitorable = true
+
+func cantBeHit():
+	$Health_Component.monitorable = false
 
 
 
@@ -105,8 +111,7 @@ func _on_health_component_attacked(attack:Attack) -> void:
 	velocity.x += (global_position.x - attack.xposition) * knockbackForce
 	velocity.y += (global_position.y - attack.yposition) * knockbackForce
 	$AnimatedSprite2D.self_modulate.a = .5
-	$Health_Component.monitorable = false
-	
+	cantBeHit()	
 	
 
 	$iframes.start()
@@ -114,5 +119,5 @@ func _on_health_component_attacked(attack:Attack) -> void:
 
 func _on_iframes_timeout() -> void:
 	$AnimatedSprite2D.self_modulate.a = 1
-	$Health_Component.monitorable = true
+	canBeHit()
 	print("goobbye")

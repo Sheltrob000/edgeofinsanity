@@ -3,6 +3,7 @@ class_name Health_Component
 
 @export var MAXHEALTH = 1
 var health = 0
+signal attacked(attack:Attack)
 
 func _ready():
     health = MAXHEALTH
@@ -11,6 +12,7 @@ func _ready():
 func damage(attack : Attack):
     health -= attack.damage
     print(health)
+    attacked.emit(attack)
 
     if health <= 0:
         get_parent().queue_free()

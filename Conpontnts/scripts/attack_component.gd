@@ -30,7 +30,7 @@ func StartAttack():
 
 func _on_area_entered(area:Health_Component) -> void:
 	var attack = Attack.new()
-	attack.withDamage(damage).WithKnockbackMultiplyer(knockbackMultiplyer)
+	attack.withDamage(damage).WithKnockbackMultiplyer(knockbackMultiplyer).withXPosition(global_position.x).withYPosition(global_position.y)
 	area.damage(attack)
 
 

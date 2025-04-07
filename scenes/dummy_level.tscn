@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://g6fcda2rdu66"]
+[gd_scene load_steps=6 format=3 uid="uid://g6fcda2rdu66"]
 
 [ext_resource type="Texture2D" uid="uid://cihyu5mf0c7n8" path="res://assets/icon.svg" id="1_4d6iw"]
+[ext_resource type="Texture2D" uid="uid://c2g5pjmxsnpel" path="res://assets/backgtound.jpg" id="1_lbijp"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="2_awhbj"]
 [ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="3_sj3fy"]
 
@@ -8,6 +9,11 @@
 size = Vector2(5101, 209)
 
 [node name="dummyLevel" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1681.5, -2635.5)
+scale = Vector2(31.3617, 16.175)
+texture = ExtResource("1_lbijp")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 

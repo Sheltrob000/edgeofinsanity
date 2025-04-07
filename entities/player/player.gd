@@ -99,3 +99,18 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	canDash = true
+
+
+func _on_health_component_attacked(attack:Attack) -> void:
+	var knockbackForce = attack.knockbackMultiplyer
+	velocity.x += (global_position.x - attack.xposition) * knockbackForce
+	velocity.y += (global_position.y - attack.yposition) * knockbackForce
+	$Sprite2D.self_modulate.a = .5
+	$iframes.start()
+	$Health_Component.monitoring = false
+
+func _on_iframes_timeout() -> void:
+	$Sprite2D.self_modulate.a = 1
+	$Health_Component.monitoring = true
+	print("hello")
+

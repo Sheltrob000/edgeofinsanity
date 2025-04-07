@@ -15,3 +15,9 @@ func damage(attack : Attack):
 
     if health <= 0:
         get_parent().queue_free()
+    
+func canBeHit():
+    monitorable = true
+
+func cantBeHit():
+    monitorable = false

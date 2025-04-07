@@ -107,6 +107,7 @@ func _on_health_component_attacked(attack:Attack) -> void:
 	$AnimatedSprite2D.self_modulate.a = .5
 	$Health_Component.monitorable = false
 	
+	
 
 	$iframes.start()
 	print("hello")

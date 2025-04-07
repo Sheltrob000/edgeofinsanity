@@ -11,7 +11,6 @@ func _ready():
 
 func damage(attack : Attack):
     health -= attack.damage
-    print(health)
     attacked.emit(attack)
 
     if health <= 0:

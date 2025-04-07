@@ -13,8 +13,6 @@ var isDashing = false
 var speed := 0
 
 
-
-
 func _ready():
 	$ui.setHealth($Health_Component.health)
 
@@ -102,15 +100,18 @@ func _on_dash_cooldown_timeout() -> void:
 
 
 func _on_health_component_attacked(attack:Attack) -> void:
+	velocity = Vector2(0, 0)
 	var knockbackForce = attack.knockbackMultiplyer
 	velocity.x += (global_position.x - attack.xposition) * knockbackForce
 	velocity.y += (global_position.y - attack.yposition) * knockbackForce
-	$Sprite2D.self_modulate.a = .5
-	$iframes.start()
-	$Health_Component.monitoring = false
+	$AnimatedSprite2D.self_modulate.a = .5
+	$Health_Component.monitorable = false
+	
 
-func _on_iframes_timeout() -> void:
-	$Sprite2D.self_modulate.a = 1
-	$Health_Component.monitoring = true
+	$iframes.start()
 	print("hello")
 
+func _on_iframes_timeout() -> void:
+	$AnimatedSprite2D.self_modulate.a = 1
+	$Health_Component.monitorable = true
+	print("goobbye")

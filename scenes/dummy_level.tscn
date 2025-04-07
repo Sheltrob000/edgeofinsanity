@@ -11,8 +11,8 @@ size = Vector2(5101, 209)
 [node name="dummyLevel" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(1681.5, -2635.5)
-scale = Vector2(31.3617, 16.175)
+position = Vector2(1681.5, -2333.5)
+scale = Vector2(31.3617, 17.8528)
 texture = ExtResource("1_lbijp")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]

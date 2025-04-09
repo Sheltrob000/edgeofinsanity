@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch2bxoa2y4hpc"]
+
+[ext_resource type="Script" uid="uid://bnsu6ayykexu4" path="res://Conpontnts/scripts/levelswitcher.gd" id="1_k3ekg"]
+
+[node name="levelswitcher" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_k3ekg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

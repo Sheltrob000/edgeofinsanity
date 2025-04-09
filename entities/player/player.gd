@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name player
 
 const SPEED = 800
-const DASHSPEED = 32000
+const DASHSPEED = 30000
 const JUMPSPEED = -4000
 const ACCERLATION = 500
 

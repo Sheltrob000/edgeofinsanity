@@ -1,12 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://g6fcda2rdu66"]
+[gd_scene load_steps=11 format=3 uid="uid://g6fcda2rdu66"]
 
 [ext_resource type="Texture2D" uid="uid://cihyu5mf0c7n8" path="res://assets/icon.svg" id="1_4d6iw"]
 [ext_resource type="Texture2D" uid="uid://c2g5pjmxsnpel" path="res://assets/backgtound.jpg" id="1_lbijp"]
-[ext_resource type="Script" uid="uid://dlnthajol7j5h" path="res://scenes/dummy_level.gd" id="1_tkpvu"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="2_awhbj"]
 [ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="3_sj3fy"]
-[ext_resource type="Script" uid="uid://iu44207fmy6o" path="res://Conpontnts/scenechanger.gd" id="5_7q4ea"]
-[ext_resource type="Texture2D" uid="uid://btu22ec7immf3" path="res://assets/godotLogo.png" id="6_q3too"]
+[ext_resource type="PackedScene" uid="uid://ch2bxoa2y4hpc" path="res://Conpontnts/levelswitcher.tscn" id="5_7q4ea"]
+[ext_resource type="PackedScene" uid="uid://bwrrox5ln86qn" path="res://scenes/testscene_2.tscn" id="6_q3too"]
+
+[sub_resource type="GDScript" id="GDScript_tkpvu"]
+script/source = "extends Node2D
+
+
+
+func _on_level_changer_area_entered(area:Area2D) -> void:
+	print(\"hello world\")
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awhbj"]
 size = Vector2(5101, 209)
@@ -15,20 +23,13 @@ size = Vector2(5101, 209)
 size = Vector2(857, 2627.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3too"]
-size = Vector2(1039, 439)
-
-[sub_resource type="GDScript" id="GDScript_q3too"]
-script/source = "extends Area2D
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkpvu"]
-size = Vector2(238.5, 210)
+size = Vector2(753.5, 452)
 
 [node name="dummyLevel" type="Node2D"]
-script = ExtResource("1_tkpvu")
+script = SubResource("GDScript_tkpvu")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(1681.5, -2333.5)
+position = Vector2(1867, -2274)
 scale = Vector2(31.3617, 17.8528)
 texture = ExtResource("1_lbijp")
 
@@ -50,7 +51,7 @@ position = Vector2(-1608, -336)
 position = Vector2(4006, -158)
 
 [node name="Player" parent="." instance=ExtResource("2_awhbj")]
-position = Vector2(244, -143)
+position = Vector2(8620, -338)
 
 [node name="RigidBody2D2" type="StaticBody2D" parent="."]
 
@@ -87,29 +88,9 @@ position = Vector2(9222, -2045)
 scale = Vector2(6.84375, 20.6406)
 texture = ExtResource("1_4d6iw")
 
-[node name="scenechanger" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 3
-script = ExtResource("5_7q4ea")
-metadata/_custom_type_script = "uid://iu44207fmy6o"
+[node name="levelswitcher" parent="." instance=ExtResource("5_7q4ea")]
+scene = ExtResource("6_q3too")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenechanger"]
-position = Vector2(9277.5, -480)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelswitcher"]
+position = Vector2(9158, -471)
 shape = SubResource("RectangleShape2D_q3too")
-
-[node name="Sprite2D" type="Sprite2D" parent="scenechanger"]
-visible = false
-position = Vector2(9034.5, -620)
-scale = Vector2(1.91504, 1)
-texture = ExtResource("6_q3too")
-
-[node name="levelChanger" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 3
-script = SubResource("GDScript_q3too")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levelChanger"]
-position = Vector2(-434.25, -125)
-shape = SubResource("RectangleShape2D_tkpvu")
-
-[connection signal="area_entered" from="levelChanger" to="." method="_on_level_changer_area_entered"]

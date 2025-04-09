@@ -5,6 +5,7 @@ class_name Attack_Component
 @export var knockbackMultiplyer : float
 @export var Attackduration : float
 @export var AttackCooldown : float
+@export var hitstop : float
 
 signal attackEnded
 
@@ -28,11 +29,14 @@ func StartAttack():
 
 
 
+
 func _on_area_entered(area:Health_Component) -> void:
 	var attack = Attack.new()
 	attack.withDamage(damage).WithKnockbackMultiplyer(knockbackMultiplyer).withXPosition(global_position.x).withYPosition(global_position.y)
 	area.damage(attack)
-
+	get_tree().paused = true
+	await get_tree().create_timer(hitstop).timeout
+	get_tree().paused = false
 
 
 

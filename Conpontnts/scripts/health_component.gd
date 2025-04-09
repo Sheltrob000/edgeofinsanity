@@ -6,18 +6,18 @@ var health = 0
 signal attacked(attack:Attack)
 
 func _ready():
-    health = MAXHEALTH
+	health = MAXHEALTH
 
 
 func damage(attack : Attack):
-    health -= attack.damage
-    attacked.emit(attack)
+	health -= attack.damage
+	attacked.emit(attack)
 
-    if health <= 0:
-        get_parent().queue_free()
-    
+	if health <= 0:
+		get_parent().queue_free()
+	
 func canBeHit():
-    monitorable = true
+	monitorable = true
 
 func cantBeHit():
-    monitorable = false
+	monitorable = false

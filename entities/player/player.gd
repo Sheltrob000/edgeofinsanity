@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 
 const SPEED = 800
 const DASHSPEED = 32000
@@ -11,16 +12,24 @@ var canDoubleJump := true
 var canChangeDirection = true
 var isDashing = false
 var speed := 0
+var CanBeHit := true
 
 
 func _ready():
 	$ui.setHealth($Health_Component.health)
-	canBeHit()
-func canBeHit():
-	$Health_Component.monitorable = true
+	canBeHit(CanBeHit)
 
-func cantBeHit():
-	$Health_Component.monitorable = false
+
+func canBeHit(canBeHit : bool):
+	$Health_Component.monitorable = canBeHit
+	$Health_Component.visible = canBeHit
+	
+	if !canBeHit:
+		$Health_Component.position = Vector2(10000, 10000)
+	else:
+		$Health_Component.position = Vector2(0, 0)
+
+
 
 
 
@@ -28,6 +37,8 @@ func cantBeHit():
 
 func _physics_process(delta: float) -> void:
 	$ui.setHealth($Health_Component.health)
+
+	canBeHit(CanBeHit)
 
 
 	if isDashing:
@@ -111,13 +122,11 @@ func _on_health_component_attacked(attack:Attack) -> void:
 	velocity.x += (global_position.x - attack.xposition) * knockbackForce
 	velocity.y += (global_position.y - attack.yposition) * knockbackForce
 	$AnimatedSprite2D.self_modulate.a = .5
-	cantBeHit()	
-	
-
+	CanBeHit = false
 	$iframes.start()
-	print("hello")
 
 func _on_iframes_timeout() -> void:
 	$AnimatedSprite2D.self_modulate.a = 1
-	canBeHit()
-	print("goobbye")
+	CanBeHit = true
+
+

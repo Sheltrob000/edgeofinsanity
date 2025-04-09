@@ -42,6 +42,7 @@ collision_layer = 4
 collision_mask = 2
 damage = 1
 knockbackMultiplyer = 30.0
+hitstop = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/ConsistantAttack"]
 position = Vector2(0.5, -1)

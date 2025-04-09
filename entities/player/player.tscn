@@ -111,6 +111,7 @@ size = Vector2(198, 33)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_symyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,9 +151,10 @@ shape = SubResource("RectangleShape2D_bls4j")
 collision_layer = 2
 collision_mask = 5
 damage = 1
-knockbackMultiplyer = 20.0
+knockbackMultiplyer = 10.0
 Attackduration = 0.1
 AttackCooldown = 0.3
+hitstop = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(153, 13)

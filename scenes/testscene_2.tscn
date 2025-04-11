@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c2g5pjmxsnpel" path="res://assets/backgtound.jpg" id="1_087ln"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="2_453mr"]
 [ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="3_453mr"]
-[ext_resource type="Script" uid="uid://bnsu6ayykexu4" path="res://Conpontnts/scripts/levelswitcher.gd" id="4_8fmkl"]
-[ext_resource type="PackedScene" uid="uid://bwrrox5ln86qn" path="res://scenes/testscene_2.tscn" id="5_08jv0"]
+[ext_resource type="PackedScene" uid="uid://ch2bxoa2y4hpc" path="res://Conpontnts/levelswitcher.tscn" id="4_8fmkl"]
+[ext_resource type="PackedScene" uid="uid://ci3f6hijkilgp" path="res://scenes/test_scene_3.tscn" id="5_08jv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8fmkl"]
 texture = ExtResource("1_087ln")
@@ -31,7 +31,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8fmkl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08jv0"]
-size = Vector2(1156, 390)
+size = Vector2(760.5, 377.5)
 
 [node name="testscene2" type="Node2D"]
 
@@ -66,11 +66,9 @@ position = Vector2(-391, -4578)
 [node name="python6" parent="enemies" instance=ExtResource("3_453mr")]
 position = Vector2(-188, -5925)
 
-[node name="levelSwitcher" type="Area2D" parent="."]
-script = ExtResource("4_8fmkl")
+[node name="levelswitcher" parent="." instance=ExtResource("4_8fmkl")]
 scene = ExtResource("5_08jv0")
-metadata/_custom_type_script = "uid://bnsu6ayykexu4"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levelSwitcher"]
-position = Vector2(-1550, -770)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelswitcher"]
+position = Vector2(-1761.25, -770.25)
 shape = SubResource("RectangleShape2D_08jv0")

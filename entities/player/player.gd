@@ -1,8 +1,7 @@
 extends CharacterBody2D
-class_name player
 
 const SPEED = 800
-const DASHSPEED = 30000
+const DASHSPEED = 5000
 const JUMPSPEED = -4000
 const ACCERLATION = 500
 
@@ -25,7 +24,7 @@ func canBeHit(canBeHit : bool):
 	$Health_Component.visible = canBeHit
 	
 	if !canBeHit:
-		$Health_Component.position = Vector2(10000, 10000)
+		$Health_Component.position = Vector2(1000000, 1000000)#dont you love stupid solutions
 	else:
 		$Health_Component.position = Vector2(0, 0)
 
@@ -52,7 +51,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if !is_on_floor():
-		velocity += get_gravity()
+		if velocity.y < 1500:
+			velocity += get_gravity()
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or canDoubleJump):
 		velocity.y = JUMPSPEED
@@ -128,5 +128,3 @@ func _on_health_component_attacked(attack:Attack) -> void:
 func _on_iframes_timeout() -> void:
 	$AnimatedSprite2D.self_modulate.a = 1
 	CanBeHit = true
-
-

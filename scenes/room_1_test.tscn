@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d0n05bfw0f00j"]
+[gd_scene load_steps=12 format=4 uid="uid://d0n05bfw0f00j"]
 
 [ext_resource type="Texture2D" uid="uid://dx83gv3l81wg6" path="res://assets/smoke.jpg" id="1_6a3p7"]
 [ext_resource type="Script" uid="uid://ddnhqb5168us3" path="res://scenes/scripts/room_1_test.gd" id="1_nwgb2"]
@@ -1144,6 +1144,9 @@ sources/0 = SubResource("TileSetAtlasSource_ll5ll")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwgb2"]
 size = Vector2(960, 739.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmfx6"]
+size = Vector2(257, 577.5)
+
 [node name="Room1Test" type="Node2D"]
 script = ExtResource("1_nwgb2")
 
@@ -1165,7 +1168,7 @@ tile_map_data = PackedByteArray("AAAOAAAAAAAAAAQAAAAPAAAAAAABAAQAAAAQAAAAAAACAAQ
 tile_set = SubResource("TileSet_00cl3")
 
 [node name="Player" parent="." instance=ExtResource("3_jmfx6")]
-position = Vector2(-3958, -141)
+position = Vector2(-3551, -123)
 
 [node name="switchtolevel2" type="Area2D" parent="."]
 collision_layer = 8
@@ -1178,4 +1181,13 @@ shape = SubResource("RectangleShape2D_nwgb2")
 [node name="python" parent="." instance=ExtResource("5_jmfx6")]
 position = Vector2(880, -1080)
 
+[node name="transitionleft" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transitionleft"]
+position = Vector2(-4091, -285.25)
+shape = SubResource("RectangleShape2D_jmfx6")
+
 [connection signal="area_entered" from="switchtolevel2" to="." method="_on_switchtolevel_2_area_entered"]
+[connection signal="area_entered" from="transitionleft" to="." method="_on_transitionleft_area_entered"]

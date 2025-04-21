@@ -5,9 +5,9 @@ func _ready():
 	$Player.position.y = Roomswitcher.gety()
 
 
-func _on_transition_down_area_entered(area:Area2D) -> void:
+func _on_transition_down_area_entered(area:Health_Component) -> void:
 	Roomswitcher.switchScene("res://scenes/room_2_test.tscn", 10150, -2000)
 
 
-func _on_transition_left_area_entered(area:Area2D) -> void:
-	pass # Replace with function body.
+func _on_transition_left_area_entered(area:Health_Component) -> void:
+	Roomswitcher.switchScene("res://scenes/room_4_test.tscn", 10350, -920)

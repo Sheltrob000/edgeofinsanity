@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Roomswitcher="*res://GeneralScripts/roomswitcher.gd"
+PlayerLoader="*res://GeneralScripts/player_loader.gd"
 
 [display]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ocx3cs8h88m7"]
 
 [ext_resource type="Texture2D" uid="uid://eek5dnojr4or" path="res://assets/pythin.png" id="1_bfhsq"]
-[ext_resource type="Script" uid="uid://bahraxen4m2vf" path="res://entities/enemies/python.gd" id="1_f812w"]
+[ext_resource type="Script" uid="uid://djdma2nfw784l" path="res://entities/enemies/python/python.gd" id="1_f812w"]
 [ext_resource type="PackedScene" uid="uid://sk0n2eu0hg07" path="res://Conpontnts/health_component.tscn" id="2_xjwyo"]
 [ext_resource type="PackedScene" uid="uid://dyae7xtqyfmnl" path="res://Conpontnts/consistant_attack.tscn" id="3_erhhj"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://doe18gfmfljws" path="res://scenes/scripts/room_4_test.gd" id="1_dwtx4"]
 [ext_resource type="TileSet" uid="uid://di2imgmroey85" path="res://tilemaps/room_2_test.tres" id="2_dwtx4"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="4_58wia"]
-[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="5_n0rkq"]
+[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python/python.tscn" id="5_n0rkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwtx4"]
 size = Vector2(377.5, 419.5)

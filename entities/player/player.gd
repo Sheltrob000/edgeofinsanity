@@ -8,6 +8,7 @@ const ACCERLATION = 500
 var direction = 0
 var canDash := true
 var canDoubleJump := true
+var allowedToDoubleJump := true
 var canChangeDirection = true
 var isDashing = false
 var speed := 0
@@ -15,6 +16,11 @@ var CanBeHit := true
 
 
 func _ready():
+	var setup = PlayerLoader.load_abilities()
+	canDash = setup.canDash
+	allowedToDoubleJump = setup.canDoubleJump
+	$Health_Component.health = setup.health
+	#$ui.setHealth(setup.health)
 	$ui.setHealth($Health_Component.health)
 	canBeHit(CanBeHit)
 
@@ -54,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		# if velocity.y < 1500:
 		velocity += get_gravity()
 
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or canDoubleJump):
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or (canDoubleJump and allowedToDoubleJump)):
 		velocity.y = JUMPSPEED
 		canDoubleJump = false
 	if is_on_floor():
@@ -118,6 +124,7 @@ func _on_dash_cooldown_timeout() -> void:
 
 func _on_health_component_attacked(attack:Attack) -> void:
 	velocity = Vector2(0, 0)
+	PlayerLoader.set_health($Health_Component.health)
 	var knockbackForce = attack.knockbackMultiplyer
 	velocity.x += (global_position.x - attack.xposition) * knockbackForce
 	velocity.y += (global_position.y - attack.yposition) * 10

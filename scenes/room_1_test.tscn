@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ddnhqb5168us3" path="res://scenes/scripts/room_1_test.gd" id="1_nwgb2"]
 [ext_resource type="Texture2D" uid="uid://c2g5pjmxsnpel" path="res://assets/backgtound.jpg" id="2_nwgb2"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="3_jmfx6"]
-[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="5_jmfx6"]
+[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python/python.tscn" id="5_jmfx6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jh505"]
 texture = ExtResource("1_6a3p7")

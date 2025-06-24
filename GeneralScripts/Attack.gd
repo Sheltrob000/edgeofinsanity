@@ -10,17 +10,17 @@ var yposition = 0
 
 
 func withDamage(damage : int) -> Attack:
-    self.damage = damage
-    return self
+	self.damage = damage
+	return self
 
 func WithKnockbackMultiplyer(knockbackMultiplyer : float) -> Attack:
-    self.knockbackMultiplyer = knockbackMultiplyer
-    return self
+	self.knockbackMultiplyer = knockbackMultiplyer
+	return self
 
 func withXPosition(xposition : float):
-    self.xposition = xposition
-    return self
+	self.xposition = xposition
+	return self
 
 func withYPosition(yposition : float):
-    self.yposition = yposition
-    return self
+	self.yposition = yposition
+	return self

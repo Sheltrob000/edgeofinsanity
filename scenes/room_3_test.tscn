@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://2pylinfga67v" path="res://scenes/scripts/room_3_test.gd" id="1_we8ns"]
 [ext_resource type="TileSet" uid="uid://bhnp5rkigbn4g" path="res://tilemaps/background.tres" id="2_trm7x"]
 [ext_resource type="TileSet" uid="uid://di2imgmroey85" path="res://tilemaps/room_2_test.tres" id="3_jnuwe"]
-[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python.tscn" id="4_1uc3g"]
+[ext_resource type="PackedScene" uid="uid://ocx3cs8h88m7" path="res://entities/enemies/python/python.tscn" id="4_1uc3g"]
 [ext_resource type="PackedScene" uid="uid://q83eda8l4j8k" path="res://entities/player/player.tscn" id="5_xfgcu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwemf"]

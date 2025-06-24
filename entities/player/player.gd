@@ -6,6 +6,7 @@ const JUMPSPEED = -2800
 const ACCERLATION = 500
 
 var direction = 0
+var canmove = false
 var canDash := true
 var canDoubleJump := true
 var allowedToDoubleJump := true
@@ -22,6 +23,10 @@ func _ready():
 	$Health_Component.health = setup.health
 	#$ui.setHealth(setup.health)
 	$ui.setHealth($Health_Component.health)
+	canChangeDirection = false
+	await get_tree().create_timer(1.3).timeout
+	canChangeDirection = true
+	canmove = true
 	canBeHit(CanBeHit)
 
 
@@ -53,8 +58,10 @@ func _physics_process(delta: float) -> void:
 
 	if canChangeDirection:
 		direction = Input.get_axis("left", "right")
-	velocity.x = move_toward(velocity.x, speed * direction, ACCERLATION)
-	move_and_slide()
+	
+	if canmove:
+		velocity.x = move_toward(velocity.x, speed * direction, ACCERLATION)
+		move_and_slide()
 	
 	if !is_on_floor():
 		# if velocity.y < 1500:
@@ -111,6 +118,11 @@ func spriteAnimation():
 		$AnimatedSprite2D.play("dashing")
 	else:
 		$AnimatedSprite2D.play("still")
+
+func death():
+	TransitionAnimation.fadeIn()
+	await get_tree().create_timer(1).timeout
+
 
 
 func _on_dash_timer_timeout() -> void:

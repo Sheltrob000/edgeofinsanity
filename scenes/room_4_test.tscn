@@ -10,7 +10,7 @@
 size = Vector2(377.5, 419.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58wia"]
-size = Vector2(362.5, 792)
+size = Vector2(128.55, 792)
 
 [node name="room4test" type="Node2D"]
 script = ExtResource("1_dwtx4")
@@ -45,11 +45,11 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transitionright"]
-position = Vector2(10742.3, -1147)
+position = Vector2(10859.3, -1147)
 shape = SubResource("RectangleShape2D_58wia")
 
 [node name="Player" parent="." instance=ExtResource("4_58wia")]
-position = Vector2(4337, -206)
+position = Vector2(3084, -143)
 
 [node name="pythons" type="Node2D" parent="."]
 

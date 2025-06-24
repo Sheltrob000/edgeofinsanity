@@ -14,6 +14,8 @@ func damage(attack : Attack):
 	attacked.emit(attack)
 
 	if health <= 0:
+		if get_parent().has_method("death"):
+			await get_parent().death()
 		get_parent().queue_free()
 	
 func canBeHit():

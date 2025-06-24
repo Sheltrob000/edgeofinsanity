@@ -1168,7 +1168,7 @@ tile_map_data = PackedByteArray("AAAOAAAAAAAAAAQAAAAPAAAAAAABAAQAAAAQAAAAAAACAAQ
 tile_set = SubResource("TileSet_00cl3")
 
 [node name="Player" parent="." instance=ExtResource("3_jmfx6")]
-position = Vector2(-3551, -123)
+position = Vector2(-3544, -109)
 
 [node name="switchtolevel2" type="Area2D" parent="."]
 collision_layer = 8

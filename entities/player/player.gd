@@ -88,12 +88,26 @@ func _physics_process(delta: float) -> void:
 	spriteAnimation()
 
 
+	if $CameraHelper/RayCast2D.is_colliding():
+		$CameraHelper.position.y = 100
+		print("is coliding")
+	else:
+		$CameraHelper.position.y = -200
+	
+
+
+
+
+
+
+
+
+
+
+
 
 	if Input.is_action_just_pressed("attack") and canChangeDirection:
 		$AttackComponent.StartAttack()
-
-
-
 
 
 
@@ -101,12 +115,12 @@ func spriteDirection():
 	if direction == 1:
 		$Sprite2D.flip_h = false
 		$AnimatedSprite2D.flip_h = false
-
 		$AttackComponent.scale.x = 1
+		$CameraHelper/Camera2D.position.x = 300
 	elif direction == -1:
 		$Sprite2D.flip_h = true
 		$AnimatedSprite2D.flip_h = true
-
+		$CameraHelper/Camera2D.position.x = -300
 		$AttackComponent.scale.x = -1
 
 
@@ -119,9 +133,52 @@ func spriteAnimation():
 	else:
 		$AnimatedSprite2D.play("still")
 
+
+func setCameraLimitTop(top):
+	$CameraHelper/Camera2D.limit_top = top
+
+func setCameraLimitBottom(bottom):
+	$CameraHelper/Camera2D.limit_bottom = bottom
+
+func setCameraLimitLeft(left):
+	$CameraHelper/Camera2D.limit_left = left
+
+func setCameraLimitRight(right):
+	$CameraHelper/Camera2D.limit_right = right
+
+func setCameraLimit(top, bottom, left, right):
+	setCameraLimitTop(top)
+	setCameraLimitBottom(bottom)
+	setCameraLimitLeft(left)
+	setCameraLimitRight(right)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 func death():
 	TransitionAnimation.fadeIn()
 	await get_tree().create_timer(1).timeout
+
+
+
+
+
+
+
+
+
+
+
 
 
 

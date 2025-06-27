@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	$Player.position.x = TransitionAnimation.getx()
 	$Player.position.y = TransitionAnimation.gety()
+	$Player.setCameraLimit(-2400, 191, -4200, 6000)
 
 
 func _on_switchtolevel_2_area_entered(_area: Health_Component) -> void:

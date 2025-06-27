@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
 	$Player.position.x = TransitionAnimation.getx()
 	$Player.position.y = TransitionAnimation.gety()
-	print($Player.position)
+	# $Player.setCameraLimit()
 
 
 func _on_levelswitcher_left_area_entered(area:Health_Component) -> void:

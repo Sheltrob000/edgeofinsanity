@@ -129,12 +129,22 @@ visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_abrql")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CameraHelper" type="Node2D" parent="."]
+position = Vector2(-7, 0)
+
+[node name="Camera2D" type="Camera2D" parent="CameraHelper"]
+position = Vector2(0, -200)
 zoom = Vector2(0.4, 0.4)
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="CameraHelper"]
+position = Vector2(87, 122)
+exclude_parent = false
+target_position = Vector2(-1, -47)
+hit_from_inside = true
+collide_with_areas = true
 
 [node name="Health_Component" type="Area2D" parent="."]
 collision_layer = 2
@@ -144,7 +154,7 @@ MAXHEALTH = 5
 metadata/_custom_type_script = "uid://dyx46452883bx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Health_Component"]
-position = Vector2(-8.5, -22.5)
+position = Vector2(-9, -24)
 shape = SubResource("RectangleShape2D_bls4j")
 
 [node name="AttackComponent" parent="." instance=ExtResource("5_qiwj3")]

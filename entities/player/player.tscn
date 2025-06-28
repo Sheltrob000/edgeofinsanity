@@ -139,13 +139,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="RayCast2D" type="RayCast2D" parent="CameraHelper"]
-position = Vector2(87, 122)
-exclude_parent = false
-target_position = Vector2(-1, -47)
-hit_from_inside = true
-collide_with_areas = true
-
 [node name="Health_Component" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
@@ -163,7 +156,7 @@ collision_mask = 5
 damage = 1
 knockbackMultiplyer = 10.0
 Attackduration = 0.1
-AttackCooldown = 0.3
+AttackCooldown = 0.2
 hitstop = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
@@ -221,6 +214,20 @@ expand_mode = 3
 
 [node name="iframes" type="Timer" parent="."]
 one_shot = true
+
+[node name="camraGroundRaycast" type="RayCast2D" parent="."]
+position = Vector2(83, 101)
+exclude_parent = false
+target_position = Vector2(1, 240)
+collision_mask = 15
+collide_with_areas = true
+
+[node name="camraGroundRaycast2" type="RayCast2D" parent="."]
+position = Vector2(-107, 99)
+exclude_parent = false
+target_position = Vector2(-1, 235)
+collision_mask = 15
+collide_with_areas = true
 
 [connection signal="attacked" from="Health_Component" to="." method="_on_health_component_attacked"]
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]

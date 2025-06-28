@@ -21,7 +21,6 @@ func _ready():
 	canDash = setup.canDash
 	allowedToDoubleJump = setup.canDoubleJump
 	$Health_Component.health = setup.health
-	#$ui.setHealth(setup.health)
 	$ui.setHealth($Health_Component.health)
 	canChangeDirection = false
 	await get_tree().create_timer(1.3).timeout
@@ -87,12 +86,11 @@ func _physics_process(delta: float) -> void:
 	spriteDirection()
 	spriteAnimation()
 
-
-	if $CameraHelper/RayCast2D.is_colliding():
-		$CameraHelper.position.y = 100
-		print("is coliding")
-	else:
-		$CameraHelper.position.y = -200
+	if is_on_floor():
+		if $camraGroundRaycast.is_colliding() and $camraGroundRaycast2.is_colliding():
+			$CameraHelper.position.y = 0
+		else:
+			$CameraHelper.position.y = 300
 	
 
 
